@@ -18,11 +18,21 @@
             <asp:Button ID="updateButton" runat="server" Text="Update" />
             <br />
             <br />
-            <asp:DropDownList ID="flowerList" runat="server">
+            <asp:DropDownList ID="flowerList" runat="server" TabIndex="3" Visible="False">
             </asp:DropDownList>
             <br />
             <br />
-            <asp:Button ID="enter" runat="server" Text="Enter" />
+            <asp:Button ID="enter" runat="server" Text="Enter" Visible="False" />
+            <br />
+            <br />
+            <asp:Table ID="flowers" runat="server">
+                <asp:TableRow runat="server">
+                </asp:TableRow>
+                <asp:TableRow runat="server">
+                </asp:TableRow>
+                <asp:TableRow runat="server">
+                </asp:TableRow>
+            </asp:Table>
         </div>
     </form>
 </body>
