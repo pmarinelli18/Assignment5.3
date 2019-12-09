@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
         <div>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Query" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Refresh" runat="server" OnClick="Refresh_Click" Text="Refresh" />
             <br />
             <br />
             <asp:Button ID="insertButton" runat="server" OnClick="Button2_Click" Text="Insert" />
@@ -23,6 +25,7 @@
             <br />
             <br />
             <asp:Button ID="enter" runat="server" Text="Enter" Visible="False" OnClick="enter_Click1" />
+            &nbsp;&nbsp;
             <asp:Button ID="enter2" runat="server" Text="Enter" Visible="False" />
             <br />
             <asp:Label ID="nameLabel" runat="server" Text="Name" Visible="False"></asp:Label>

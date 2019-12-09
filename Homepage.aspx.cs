@@ -170,5 +170,22 @@ namespace Assignment5._3
 
             SQLiteCommand selectCommand = new SQLiteCommand(insertSightings, myConnection);
         }
+
+        protected void Refresh_Click(object sender, EventArgs e)
+        {
+            flowerList.Visible = false;
+            enter.Visible = false;
+            enter2.Visible = false;
+            nameLabel.Visible = false;
+            nameTB.Visible = false;
+            personLabel.Visible = false;
+            personTB.Visible = false;
+            dateTB.Visible = false;
+            DateLabel.Visible = false;
+            locationLabel.Visible = false;
+            locationTB.Visible = false;
+            enter3.Visible = false;
+            flowers.Visible = false;
+        }
     }
 }
