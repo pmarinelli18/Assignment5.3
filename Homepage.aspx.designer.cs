@@ -96,6 +96,15 @@ namespace Assignment5._3
         protected global::System.Web.UI.WebControls.Label nameLabel;
 
         /// <summary>
+        /// comnameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label comnameLabel;
+
+        /// <summary>
         /// nameTB control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace Assignment5._3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox nameTB;
+
+        /// <summary>
+        /// comnameTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox comnameTB;
 
         /// <summary>
         /// personLabel control.
@@ -114,6 +132,15 @@ namespace Assignment5._3
         protected global::System.Web.UI.WebControls.Label personLabel;
 
         /// <summary>
+        /// genusLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label genusLabel;
+
+        /// <summary>
         /// personTB control.
         /// </summary>
         /// <remarks>
@@ -121,6 +148,15 @@ namespace Assignment5._3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox personTB;
+
+        /// <summary>
+        /// genusTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox genusTB;
 
         /// <summary>
         /// locationLabel control.
@@ -132,6 +168,15 @@ namespace Assignment5._3
         protected global::System.Web.UI.WebControls.Label locationLabel;
 
         /// <summary>
+        /// speciesLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label speciesLabel;
+
+        /// <summary>
         /// locationTB control.
         /// </summary>
         /// <remarks>
@@ -139,6 +184,15 @@ namespace Assignment5._3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox locationTB;
+
+        /// <summary>
+        /// speciesTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox speciesTB;
 
         /// <summary>
         /// DateLabel control.
@@ -157,6 +211,15 @@ namespace Assignment5._3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox dateTB;
+
+        /// <summary>
+        /// enter4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button enter4;
 
         /// <summary>
         /// enter3 control.

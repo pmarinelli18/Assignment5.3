@@ -169,10 +169,12 @@ namespace Assignment5._3
             string insertSightings = "INSERT INTO SIGHTINGS VALUES(\"" + name + "\", \"" + person + "\", \"" + location + "\", \"" + date + "\");";
 
             SQLiteCommand selectCommand = new SQLiteCommand(insertSightings, myConnection);
+            myConnection.Close();
         }
 
         protected void Refresh_Click(object sender, EventArgs e)
         {
+            
             flowerList.Visible = false;
             enter.Visible = false;
             enter2.Visible = false;
@@ -186,6 +188,45 @@ namespace Assignment5._3
             locationTB.Visible = false;
             enter3.Visible = false;
             flowers.Visible = false;
+            speciesLabel.Visible = false;
+            speciesTB.Visible = false;
+            genusLabel.Visible = false;
+            genusTB.Visible = false;
+            comnameLabel.Visible = false;
+            comnameTB.Visible = false;
+            enter4.Visible = false;
+        }
+
+        protected void enter2_Click1(object sender, EventArgs e)
+        {
+            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\flowers2019.db; Version=3");
+            myConnection.Open();
+
+            string getFlowers = "SELECT comname, genus, species FROM Flowers WHERE Comname = \"" + flowerList.Text + "\"";
+
+            SQLiteCommand selectCommandFlowers = new SQLiteCommand(getFlowers, myConnection);
+            SQLiteDataReader dataReaderFlowers = selectCommandFlowers.ExecuteReader();
+            while (dataReaderFlowers.Read())
+            {
+
+                comnameTB.Text = dataReaderFlowers.GetString(0);
+                genusTB.Text = dataReaderFlowers.GetString(1);
+                speciesTB.Text = dataReaderFlowers.GetString(2);
+
+            }
+
+            speciesLabel.Visible = true;
+            speciesTB.Visible = true;
+            genusLabel.Visible = true;
+            genusTB.Visible = true;
+            comnameLabel.Visible = true;
+            comnameTB.Visible = true;
+            enter4.Visible = true;
+        }
+
+        protected void enter4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
