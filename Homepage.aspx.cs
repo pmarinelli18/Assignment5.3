@@ -18,7 +18,7 @@ namespace Assignment5._3
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\flowers2019.db; Version=3");
+            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\Users\\Peyton\\source\\repos\\Assignment5.3\\Assignment5.3\\flowers2019.db;");
             myConnection.Open();
             //dsff
             string getFlowers =
@@ -69,7 +69,7 @@ namespace Assignment5._3
 
         protected void enter2_Click(object sender, EventArgs e)
         {
-            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\flowers2019.db; Version=3");
+            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\Users\\Peyton\\source\\repos\\Assignment5.3\\Assignment5.3\\flowers2019.db;");
             myConnection.Open();
             string getSightings = "SELECT sighted, location, person FROM SIGHTINGS, FLOWERS " +
             "where FLOWERS.COMNAME = " + flowerList.SelectedValue + " and SIGHTINGS.NAME = FLOWERS.COMNAME " +
@@ -95,7 +95,7 @@ namespace Assignment5._3
 
         protected void enter_Click1(object sender, EventArgs e)
         {
-            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\flowers2019.db; Version=3");
+            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\Users\\Peyton\\source\\repos\\Assignment5.3\\Assignment5.3\\flowers2019.db;");
             myConnection.Open();
             string getSightings = "SELECT sighted, location, person FROM SIGHTINGS, FLOWERS where FLOWERS.COMNAME = '" + flowerList.SelectedValue+ "' and SIGHTINGS.NAME = FLOWERS.COMNAME ORDER BY SIGHTINGS.SIGHTED DESC LIMIT 10;";
 
@@ -119,7 +119,7 @@ namespace Assignment5._3
 
         protected void updateButton_Click(object sender, EventArgs e)
         {
-            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\flowers2019.db; Version=3");
+            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\Users\\Peyton\\source\\repos\\Assignment5.3\\Assignment5.3\\flowers2019.db;");
             myConnection.Open();
             //dsff
             string getFlowers =
@@ -155,21 +155,32 @@ namespace Assignment5._3
             string person = personTB.Text;
             string location = locationTB.Text;
             string date = dateTB.Text;
-            if(name == "")
-                name = null;
+            if (name == "")
+                name = "null";
+            else name = "\"" + name + "\"";
             if (person == "")
-                person = null;
+                person = "null";
+            else name = "\"" + person + "\"";
             if (location == "")
-                location = null;
+                location = "null";
+            else name = "\"" + location+ "\"";
             if (date == "")
-                date = null;
+                date = "null";
 
-            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\flowers2019.db; Version=3");
+            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\Users\\Peyton\\source\\repos\\Assignment5.3\\Assignment5.3\\flowers2019.db;");
             myConnection.Open();
-            string insertSightings = "INSERT INTO SIGHTINGS VALUES(\"" + name + "\", \"" + person + "\", \"" + location + "\", \"" + date + "\");";
+            
 
-            SQLiteCommand selectCommand = new SQLiteCommand(insertSightings, myConnection);
-            myConnection.Close();
+            using (SQLiteTransaction sqlTransaction = myConnection.BeginTransaction())
+            {
+                // Update the expiry date of the application
+                string insertSightings = "INSERT INTO SIGHTINGS VALUES(" + name + ", " + person + ", " + location + ", " + date + ");";
+                SQLiteCommand insertCommand = new SQLiteCommand(insertSightings
+                                                                    , myConnection);
+                insertCommand.ExecuteNonQuery();
+                sqlTransaction.Commit();
+            }
+            
         }
 
         protected void Refresh_Click(object sender, EventArgs e)
@@ -199,7 +210,7 @@ namespace Assignment5._3
 
         protected void enter2_Click1(object sender, EventArgs e)
         {
-            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\flowers2019.db; Version=3");
+            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\Users\\Peyton\\source\\repos\\Assignment5.3\\Assignment5.3\\flowers2019.db;");
             myConnection.Open();
 
             string getFlowers = "SELECT comname, genus, species FROM Flowers WHERE Comname = \"" + flowerList.Text + "\"";
@@ -226,7 +237,31 @@ namespace Assignment5._3
 
         protected void enter4_Click(object sender, EventArgs e)
         {
+            SQLiteConnection myConnection = new SQLiteConnection("Data Source=C:\\Users\\Peyton\\source\\repos\\Assignment5.3\\Assignment5.3\\flowers2019.db;");
+            myConnection.Open();
 
+            string comname = comnameTB.Text;
+            string genus = genusTB.Text;
+            string species = speciesTB.Text;
+            if (comname == "")
+                comname = "null";
+            else comname = "\"" + comname + "\"";
+            if (genus == "")
+                genus = "null";
+            else genus = "\"" + genus + "\"";
+            if (species == "")
+                species = "null";
+            else species = "\"" + species + "\"";
+
+
+            using (SQLiteTransaction sqlTransaction = myConnection.BeginTransaction())
+            {
+                // Update the expiry date of the application
+                string updateFlowers = "UPDATE FLOWERS SET comname = "+ comname +", genus = " + genus + ", species = " +species + " WHERE COMNAME = \"" + flowerList.Text + "\"";
+                SQLiteCommand insertCommand = new SQLiteCommand(updateFlowers , myConnection);
+                insertCommand.ExecuteNonQuery();
+                sqlTransaction.Commit();
+            }
         }
     }
 }
